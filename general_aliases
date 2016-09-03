@@ -1,0 +1,176 @@
+#
+# Functions
+#
+# ff:  to find a file under the current directory
+ff () { /usr/bin/find . -name "$@" ; }
+
+# ffs: to find a file whose name starts with a given string
+ffs () { /usr/bin/find . -name "$@"'*' ; }
+
+# ffe: to find a file whose name ends with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; }
+
+# larger: find files larger than a certain size (in bytes)
+larger () { find . -type f -size +${1}c ; }
+
+# pipe this function with some output to print the column you want
+# ex.: cat file.txt | fawk 2
+function fawk {
+    first="awk '{print "
+    last="}'"
+    cmd="${first}\$${1}${last}"
+    eval $cmd
+ }
+
+# for G09 td logfiles
+ee () { grep ' nm' $@ ; }
+
+# compress the passed argument to some archive
+bz () { tar -jcf `basename $1`_`date +'%d%b%y'`.bak.tar.bz2 $1 ; }
+gz () { tar -zcf `basename $1`_`date +'%d%b%y'`.bak.tar.gz $1 ; }
+
+# Extraction of compressed files based on the extension
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar -jxf $1    ;;
+            *.tar.gz)    tar -zxf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       rar x $1       ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar -jxf $1    ;;
+            *.tgz)       tar -zxf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+# Automatically cd after mkdir
+mkcd () {
+    mkdir $1 && cd $1
+}
+
+# Automatically ll after cd
+cd () {
+    if [ -n "$1" ]; then
+        builtin cd "$@" && ls --file-type --color=always --group-directories-first -lh
+    else
+        builtin cd ~ && ls --file-type --color=always --group-directories-first -lh
+    fi
+}
+
+# Go up N directories starting from pwd
+up () {
+    if [ -z "$1" ]; then
+        LIMIT=1
+    else
+        LIMIT=$1
+    fi
+    P=$PWD
+    for ((i=1; i <= LIMIT; i++)); do
+        P=$P/..
+    done
+    cd $P
+    export MPWD=$P
+}
+
+# Define the package manager based on the OS
+pacman () {
+    OS=`lsb_release -d | fawk 2`
+    case $OS in
+        Ubuntu) PACMAN="apt-get" ;;
+        Fedora) PACMAN="dnf"     ;;
+    esac
+}
+
+# Call the function to populate $PACMAN variable
+pacman
+
+#
+# Aliases
+# cd aliases use the function defined above
+#
+alias cd..="cd .."
+alias b="cd -"
+alias inst="sudo $PACMAN install -y"
+alias update="sudo $PACMAN update"
+alias remove="sudo $PACMAN remove"
+alias autoremove="sudo $PACMAN autoremove"
+alias purge="sudo $PACMAN remove --purge"
+alias pipinst="sudo pip install"
+alias pipuninst="sudo pip uninstall"
+alias rm="trash"
+alias ls="ls --file-type --color=always --group-directories-first"
+alias ll="ls -lh" 
+alias la="ls -Alh"
+alias ld="ll -L | grep '^d'"
+alias lf="ll -L | grep -v '^d'"
+alias cc="find . -name '*~' -type f -delete"
+alias clean="find . -name 'QMT*' -type f -delete"
+alias cleanchk="find . -name '*.chk' -type f -delete"
+alias cleanlog="find . -name '*.log' -type f -delete"
+alias cleancis="find . -name 'CisP*' -type f -delete"
+alias cleandat="find . -name 'Dat*' -type f -delete"
+alias cleaneet="cleancis && cleandat"
+alias mkdir="mkdir -pv"
+alias path='echo -e "${PATH//:/\\n}"'
+alias root="sudo -i"
+alias su="sudo -i"
+alias hg="history | grep"
+alias h="history"
+alias more="less"
+alias which="type"
+alias where="whereis"
+alias rmspaces="rename 's/ /_/g' *"
+alias dim="du -ch | grep total"
+alias info='df -h . | grep sda | awk "{print \$6, \$4, \$5}"'
+alias countdir="ll | grep -c '^d'"
+alias countcoup="ll | grep -c V_"
+alias python="ipython --no-confirm-exit"
+alias pgrep="ps -aux | grep"
+alias vi="vim"
+alias brc="vi ~/.bashrc"
+alias relbrc="source ~/.bashrc"
+alias zrc="vi ~/.zshrc"
+alias relzrc="source ~/.zshrc"
+alias trc="vi ~/.tcshrc"
+alias reltrc="source ~/.tcshrc"
+alias virc="vi ~/.vimrc"
+alias als="vi ~/.aliases"
+alias prof="vi ~/.profile"
+alias zprof="vi ~/.zprofile"
+alias sshconf="vi ~/.ssh/config"
+alias vio="vi -O"
+alias vih="vi -o"
+alias ip="curl ifconfig.me/ip"
+alias tailf="tail -f"
+alias dolphin="dolphin . &"
+alias nautilus="nautilus . &"
+alias syncbin="rsync -a --exclude '.*' ~/bin/ bright:bin/"
+alias specdis="SpecDis"
+alias dsv="cd /home/software/Accelrys/DiscoveryStudio45/bin/ && ./DiscoveryStudio45 & ; b"
+alias open="xdg-open"
+alias gp="gnuplot"
+alias jobs="jobs -l"
+
+#
+# ssh Aliases
+# Hosts defined in ~/.ssh/config
+#
+alias macro="ssh -X MacrOne"
+alias bright="ssh -X bright"
+alias molimen="ssh -X molimen"
+alias santoro2="ssh -X santoro2"
+alias storage="ssh -X storage"
+alias ecuba="ssh -X ecuba"
+alias godzilla="ssh -X godzilla"
+alias flaubert="ssh -X flaubert"
+alias minerva="ssh -X minerva"
+alias tinis="ssh -X tinis"
+alias mcp="ssh -X mcp"

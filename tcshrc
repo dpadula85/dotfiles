@@ -1,0 +1,73 @@
+#
+# Needed for Gaussian and GView, DO NOT DELETE!
+#
+
+#
+# Gaussian
+#
+setenv GAUSS_SCRDIR /home/dpadula/gauscr
+setenv GDIR /home/$USER/software/gaussian
+alias seth23  'setenv gdvroot $GDIR/gdvH23;  setenv GAUSS_EXEDIR $GDIR/gdvH23/gdv;  source $gdvroot/gdv/bsd/gdv.login'
+seth23
+
+#
+# GaussView
+#
+setenv GV_DIR /home/$USER/software/gaussian/gview5
+alias gview /home/$USER/software/gaussian/gview5'/gview \!* &'
+unalias gv
+alias gv /home/$USER/software/gaussian/gview5/'gview \!* &'
+
+
+#
+# Amber
+#
+if ( $HOST == ecuba ) then
+  setenv AMBERHOME /home/$USER/amber14
+  source $AMBERHOME/amber.csh
+else if ( $HOST == daniele-asus ) then
+  setenv AMBERHOME /home/$USER/software/amber14
+  source $AMBERHOME/amber.csh
+endif
+
+#
+# VMD
+#
+set path = (/usr/local/bin/vmd $path)
+
+#
+# Alias
+#
+#personal aliases
+ alias inst 'sudo apt-get install'
+ alias update 'sudo apt-get update'
+ alias remove 'sudo apt-get remove'
+ alias purge 'sudo apt-get remove --purge'
+ alias ls 'ls --color=always'
+ alias ll 'ls -lh --group-directories-first'
+ alias la 'ls -Alh --group-directories-first'
+ alias cd.. 'cd ..'
+ alias .. 'cd ..'
+ alias b 'cd -'
+ alias cc 'find . -name "*~" -type f -delete'
+ alias macro 'ssh -X MacrOne'
+ alias bright 'ssh -X bright'
+ alias molimen 'ssh -X molimen'
+ alias santoro2 'ssh -X santoro2'
+ alias storage 'ssh -X storage'
+ alias bz 'tar -jcvf'
+ alias ubz 'tar -jxvf'
+ alias gz 'tar -zcvf'
+ alias ugz 'tar -zxvf'
+ alias ee 'grep " nm"'
+ alias jobs 'jobs -l'
+
+#
+# Color files by extension 
+#
+ if (-f ~/.colors) then
+    alias ll 'ls-F'
+    set listflags='ha'
+    set color
+    setenv LS_COLORS `awk '! /^#|^$|\t/ {printf $1'='$2":"}' ~/.colors`
+ endif
