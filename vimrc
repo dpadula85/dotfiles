@@ -25,6 +25,9 @@ execute pathogen#infect()
 filetype plugin on
 filetype indent on
 
+"Map pastetoggle to F2
+set pastetoggle=<F2>
+
 "Enable mouse and positioning options
 set ruler
 set cursorline
