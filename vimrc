@@ -28,6 +28,9 @@ filetype indent on
 "Map pastetoggle to F2
 set pastetoggle=<F2>
 
+"Show relative line numbers
+set relativenumber
+
 "Enable mouse and positioning options
 set ruler
 set cursorline
