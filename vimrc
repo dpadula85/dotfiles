@@ -17,9 +17,9 @@ set history=700
 source ~/dotfiles/vim/autoload/pathogen.vim
 execute pathogen#infect()
 
-"NERDCommenter now takes care of this!!
-"Fast comment lines with \c
-":vmap \c c# <ESC>p
+"Fast comment/uncomment lines with \cc / \cu
+":map \cc :s/^/# /g<CR>:let @/ = ""<CR>
+":map \cu :s/^# //g<CR>:let @/ = ""<CR>
 
 "Enable filetype plugins
 filetype plugin on
