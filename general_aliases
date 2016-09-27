@@ -158,6 +158,7 @@ alias dsv="cd /home/software/Accelrys/DiscoveryStudio45/bin/ && ./DiscoveryStudi
 alias open="xdg-open"
 alias gp="gnuplot"
 alias jobs="jobs -l"
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
 
 #
 # ssh Aliases
