@@ -112,5 +112,5 @@ fi
 #
 # Amber
 #
-export AMBERHOME=/home/$USER/software/amber14
-source $AMBERHOME/amber.sh
+# export AMBERHOME=/home/$USER/software/amber14
+# source $AMBERHOME/amber.sh

@@ -5,10 +5,10 @@
 #
 # Gaussian
 #
-setenv GAUSS_SCRDIR /home/dpadula/gauscr
-setenv GDIR /home/$USER/software/gaussian
-alias seth23  'setenv gdvroot $GDIR/gdvH23;  setenv GAUSS_EXEDIR $GDIR/gdvH23/gdv;  source $gdvroot/gdv/bsd/gdv.login'
-seth23
+#setenv GAUSS_SCRDIR /home/dpadula/gauscr
+#setenv GDIR /home/$USER/software/gaussian
+#alias seth23  'setenv gdvroot $GDIR/gdvH23;  setenv GAUSS_EXEDIR $GDIR/gdvH23/gdv;  source $gdvroot/gdv/bsd/gdv.login'
+#seth23
 
 #
 # GaussView
@@ -26,8 +26,8 @@ if ( $HOST == ecuba ) then
   setenv AMBERHOME /home/$USER/amber14
   source $AMBERHOME/amber.csh
 else if ( $HOST == daniele-asus ) then
-  setenv AMBERHOME /home/$USER/software/amber14
-  source $AMBERHOME/amber.csh
+  #setenv AMBERHOME /home/$USER/software/amber14
+  #source $AMBERHOME/amber.csh
 endif
 
 #
