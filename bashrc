@@ -31,6 +31,7 @@ nc='\e[0m'
 #echo -ne "${red}Today is:\t\t${white}" `date`; echo ""
 #echo -e "${red}Kernel Information: \t${white}" `uname -smr`
 #echo -e "${white}"; cal -3
+export EDITOR=/usr/bin/vim
 
 # If not running interactively, don't do anything
 case $- in
