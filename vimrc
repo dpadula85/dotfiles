@@ -12,7 +12,7 @@ set history=700
 :command Q q
 :command WQ wq
 :command Wq wq
-:command sudow :execute ':silent w !sudo tee % > /dev/null' | :edit!
+:command Wsu :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "Enable Pathogen and plugins in bundle directory
 source ~/dotfiles/vim/autoload/pathogen.vim
