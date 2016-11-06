@@ -86,6 +86,7 @@ pacman () {
     case $OS in
         Ubuntu) PACMAN="apt-get" ;;
         Fedora) PACMAN="dnf"     ;;
+        Raspbian) PACMAN="apt-get" ;;
     esac
 }
 
