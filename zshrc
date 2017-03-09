@@ -114,3 +114,5 @@ fi
 #
 # export AMBERHOME=/home/$USER/software/amber14
 # source $AMBERHOME/amber.sh
+#
+export PATH="/home/dpadula/anaconda2/bin:$PATH"

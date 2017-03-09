@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/dpadula/Devel/test/templates'
 let g:netrw_dirhist_2='/home/dpadula/Devel/test/dipoles'
 let g:netrw_dirhist_3='/etc/NetworkManager/system-connections'
 let g:netrw_dirhist_4='/var/lib/transmission/.config/transmission-daemon'
+let g:netrw_dirhist_5='/home/dpadula/tube_flat/ref'
+let g:netrw_dirhist_6='/home/dpadula/bin'

@@ -140,5 +140,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Miniconda2 4.0.5 installer
-export PATH="/home/dpadula/miniconda2/bin:$PATH"
+# added by Anaconda2 4.3.0 installer
+export PATH="/home/dpadula/anaconda2/bin:$PATH"
