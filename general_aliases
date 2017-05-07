@@ -29,6 +29,9 @@ ee () { grep ' nm' $@ ; }
 bz () { tar -jcf `basename $1`_`date +'%d%b%y'`.bak.tar.bz2 $1 ; }
 gz () { tar -zcf `basename $1`_`date +'%d%b%y'`.bak.tar.gz $1 ; }
 
+# compress pdf
+pdfcomp () { ps2pdf $1 `echo $1 | rev | cut -d . -f2- | rev`_comp.pdf }
+
 # Extraction of compressed files based on the extension
 extract () {
     if [ -f $1 ] ; then
