@@ -141,15 +141,24 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda2 4.3.0 installer
-export PATH="/home/dpadula/anaconda2/bin:$PATH"
+export PATH="$HOME/anaconda2/bin:$PATH"
 
 #
 # Gromacs
 #
-source $HOME/software/gromacs/bin/GMXRC.bash
+if [ -d "$HOME/software/gromacs" ]; then
+  source $HOME/software/gromacs/bin/GMXRC.zsh
+fi
 
 #
 # ORCA
 #
-export path="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+if [ -d "$HOME/software/orca_4_0_1_linux_x86-64_openmpi202" ]; then
+  export PATH="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+fi
 
+#
+# Amber
+#
+# export AMBERHOME=/home/$USER/software/amber14
+# source $AMBERHOME/amber.sh

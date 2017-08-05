@@ -115,12 +115,16 @@ export PATH="$HOME/anaconda2/bin:$PATH"
 #
 # Gromacs
 #
-source $HOME/software/gromacs/bin/GMXRC.zsh
+if [ -d "$HOME/software/gromacs" ]; then
+  source $HOME/software/gromacs/bin/GMXRC.zsh
+fi
 
 #
 # ORCA
 #
-export PATH="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+if [ -d "$HOME/software/orca_4_0_1_linux_x86-64_openmpi202" ]; then
+  export PATH="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+fi
 
 #
 # Amber
