@@ -109,10 +109,21 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source "${ZDOTDIR:-$HOME}/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
+# added by Anaconda2 4.3.0 installer
+export PATH="$HOME/anaconda2/bin:$PATH"
+
+#
+# Gromacs
+#
+source $HOME/software/gromacs/bin/GMXRC.zsh
+
+#
+# ORCA
+#
+export PATH="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+
 #
 # Amber
 #
 # export AMBERHOME=/home/$USER/software/amber14
 # source $AMBERHOME/amber.sh
-#
-export PATH="/home/dpadula/anaconda2/bin:$PATH"

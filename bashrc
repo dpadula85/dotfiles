@@ -142,3 +142,14 @@ fi
 
 # added by Anaconda2 4.3.0 installer
 export PATH="/home/dpadula/anaconda2/bin:$PATH"
+
+#
+# Gromacs
+#
+source $HOME/software/gromacs/bin/GMXRC.bash
+
+#
+# ORCA
+#
+export path="$PATH:$HOME/software/orca_4_0_1_linux_x86-64_openmpi202"
+
