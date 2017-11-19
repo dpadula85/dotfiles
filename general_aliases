@@ -60,13 +60,13 @@ mkcd () {
 }
 
 # Automatically ll after cd
-cd () {
-    if [ -n "$1" ]; then
-        builtin cd "$@" && ls --file-type --color=always --group-directories-first -lh
-    else
-        builtin cd ~ && ls --file-type --color=always --group-directories-first -lh
-    fi
-}
+# cd () {
+#     if [ -n "$1" ]; then
+#         builtin cd "$@" && ls --file-type --color=always --group-directories-first -lh
+#     else
+#         builtin cd ~ && ls --file-type --color=always --group-directories-first -lh
+#     fi
+# }
 
 # Go up N directories starting from pwd
 up () {

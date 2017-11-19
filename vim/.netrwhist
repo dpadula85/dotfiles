@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/dpadula/Devel/test/templates'
-let g:netrw_dirhist_2='/home/dpadula/Devel/test/dipoles'
-let g:netrw_dirhist_3='/etc/NetworkManager/system-connections'
-let g:netrw_dirhist_4='/var/lib/transmission/.config/transmission-daemon'
-let g:netrw_dirhist_5='/home/dpadula/tube_flat/ref'
-let g:netrw_dirhist_6='/home/dpadula/bin'
-let g:netrw_dirhist_7='/home/dpadula/conference_materials/book'
-let g:netrw_dirhist_8='/home/dpadula/conference_materials/book/abstracts'
-let g:netrw_dirhist_9='/home/dpadula/software/gromacs-5.0.5/build'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/dpadula/.config'
