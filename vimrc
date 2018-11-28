@@ -15,8 +15,10 @@ set history=700
 :command Wsu :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "Enable Pathogen and plugins in bundle directory
+filetype off
 source ~/dotfiles/vim/autoload/pathogen.vim
 execute pathogen#infect()
+execute pathogen#helptags()
 
 "Fast comment/uncomment lines with \cc / \cu
 ":map \cc :s/^/# /g<CR>:let @/ = ""<CR>

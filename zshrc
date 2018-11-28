@@ -111,6 +111,7 @@ fi
 
 # added by Anaconda2 4.3.0 installer
 export PATH="$HOME/anaconda2/bin:$PATH"
+# export PATH="$HOME/anaconda3/bin:$PATH"
 
 #
 # Gromacs
