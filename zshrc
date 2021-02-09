@@ -40,6 +40,9 @@ setopt clobber
 # PATH
 #
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
+export PATH="$PATH:/snap/bin:"
+export PATH="$PATH:$HOME/software/Javier_bin"
+export JOYCE="$HOME/software/Joyce"
 
 #
 # Preferred editor for local and remote sessions
@@ -110,8 +113,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # added by Anaconda2 4.3.0 installer
-export PATH="$HOME/anaconda2/bin:$PATH"
+# export PATH="$HOME/anaconda2/bin:$PATH"  # commented out by conda initialize
 # export PATH="$HOME/anaconda3/bin:$PATH"
+# export PYTHONPATH="$HOME/anaconda3/bin:$PATH"
 
 #
 # Gromacs
@@ -132,3 +136,26 @@ fi
 #
 # export AMBERHOME=/home/$USER/software/amber14
 # source $AMBERHOME/amber.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dpadula/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dpadula/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/dpadula/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dpadula/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+conda activate working
+export PATH="$HOME/anaconda3/envs/working/bin:$HOME/software/JACoPO:$HOME/software/VAISD:$HOME/software/espana:$PATH"
+export PATH="$PATH:$HOME/software/Multiwfn_3.7_dev_bin_Linux/:"
+export PYTHONPATH="$HOME/anaconda3/envs/working/bin:$HOME/software/JACoPO:$HOME/software/VAISD:$HOME/software/espana:$PYTHONPATH:"
+# export PYTHONPATH="$HOME/anaconda3/envs/working/bin:$PYTHONPATH:$HOME/software/espana:"
+
+export KMP_STACKSIZE=200M
+ulimit -s unlimited

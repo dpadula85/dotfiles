@@ -23,6 +23,14 @@ execute pathogen#helptags()
 "Fast comment/uncomment lines with \cc / \cu
 ":map \cc :s/^/# /g<CR>:let @/ = ""<CR>
 ":map \cu :s/^# //g<CR>:let @/ = ""<CR>
+" Jedi vim Python
+packloadall
+let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
+let g:pymode_rope = 0
+let g:jedi#show_call_signatures = "0"
 
 "Enable filetype plugins
 filetype plugin on
